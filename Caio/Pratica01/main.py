@@ -10,7 +10,7 @@ soma = a + b
 subtracao = a - b 
 
 # Multiplicação
-multiplicacao =
+multiplicacao = a * b
 
 # Divisão (retorna um número de ponto flutuante)
 divisao = a / b  
