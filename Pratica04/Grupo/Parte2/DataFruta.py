@@ -312,8 +312,23 @@ def menu():
             datas.entradaDeDados()
         elif opcao == "4":
             idades.entradaDeDados()
-
-
+        elif opcao == "5":
+            print("\nIterador zip:")
+            for nome, salario in nomes.iteradorZip(salarios.listarEmOrdem()):
+                print(f"{nome}: {salario}")
+        elif opcao == "6":
+            print("\nCalculando o valor da folha com um reajuste de 10%:")
+            salarios_reajustados = calcularReajuste(salarios.listarEmOrdem())
+            for salario in salarios_reajustados:
+                print(salario)
+        elif opcao == "7":
+            print("\nModificando o dia das datas anteriores a 2019:")
+            datas_modificadas = modificarDatas(datas.listarEmOrdem())
+            for data in datas_modificadas:
+                print(data)
+        elif opcao == "8":
+            print("Saindo do programa.")
+            break
         else:
             print("Opção inválida. Tente novamente.")
 
