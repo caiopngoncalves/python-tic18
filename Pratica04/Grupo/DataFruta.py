@@ -153,76 +153,56 @@ class ListaDatas(AnaliseDados):
         return ', '.join(str(data) for data in self.__lista)
 
 class ListaSalarios(AnaliseDados):
-
-    def __init__(self):
-        super().__init__(type(float))
-        self.__lista = []        
+    def _init_(self):
+        super()._init_(type(float))
+        self.__lista = []
 
     def entradaDeDados(self):
-        '''
-        Este método pergunta ao usuários quantos
-        elementos vão existir na lista e depois
-        solicita a digitação de cada um deles
-        '''
-        pass
+        num_elementos = int(input("Quantos salários deseja inserir? "))
+        for _ in range(num_elementos):
+            salario = float(input("Digite um salário: "))
+            self.__lista.append(salario)
 
     def mostraMediana(self):
-        '''
-        Este método ordena a lista e mostra o
-        elemento que está na metade da lista
-        '''
-        pass    
+        sorted_lista = sorted(self.__lista)
+        mediana_index = len(sorted_lista) // 2
+        print("Mediana:", sorted_lista[mediana_index])
 
     def mostraMenor(self):
-        '''
-        Este método retorna o menos elemento da lista
-        '''
-        pass
+        print("Menor:", min(self.__lista))
 
     def mostraMaior(self):
-        '''
-        Este método retorna o maior elemento da lista
-        '''
-        pass
-    
-    def __str__(self):
-        pass
+        print("Maior:", max(self.__lista))
+
+    def _str_(self):
+        return ', '.join(map(str, self.__lista))
+
 
 class ListaIdades(AnaliseDados):
-    
-    def __init__(self):
-        super().__init__(type(int))
-        self.__lista = []        
-    
-    def entradaDeDados(self):
-        '''
-        Este método pergunta ao usuários quantos
-        elementos vão existir na lista e depois
-        solicita a digitação de cada um deles
-        '''
-        pass
-    
-    def mostraMediana(self):
-        '''
-        Este método ordena a lista e mostra o
-        elemento que está na metade da lista
-        '''
-        pass    
-    
-    def mostraMenor(self):
-        '''
-        Este método retorna o menos elemento da lista
-        '''
-        pass
-    
-    def mostraMaior(self):
-        '''
-        Este método retorna o maior elemento da lista
-        '''
-        pass
+    def _init_(self):
+        super()._init_(type(int))
+        self.__lista = []
 
-    def __str__(self):
-        pass
+    def entradaDeDados(self):
+        num_elementos = int(input("Quantas idades deseja inserir? "))
+        for _ in range(num_elementos):
+            idade = int(input("Digite uma idade: "))
+            self.__lista.append(idade)
+
+    def mostraMediana(self):
+        sorted_lista = sorted(self.__lista)
+        mediana_index = len(sorted_lista) // 2
+        print("Mediana:", sorted_lista[mediana_index])
+
+    def mostraMenor(self):
+        print("Menor:", min(self.__lista))
+
+    def mostraMaior(self):
+        print("Maior:", max(self.__lista))
+
+    def _str_(self):
+        return ', '.join(map(str, self.__lista))
+
 
 def main():
     nomes = ListaNomes()
@@ -237,9 +217,11 @@ def main():
         lista.mostraMediana()
         lista.mostraMenor()
         lista.mostraMaior()
-        print("___________________")
+        print("Lista:", lista)
+        print("_______")
 
     print("Fim do teste!!!")
 
-if __name__ == "__main__":
+
+if _name_ == "_main_":
     main()
